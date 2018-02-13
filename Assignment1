@@ -1,3 +1,5 @@
+#probability
+
 t = -pi:0.01:pi;
 y = sin(t);
 z = [];
