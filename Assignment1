@@ -1,0 +1,44 @@
+t = -pi:0.01:pi;
+y = sin(t);
+z = [];
+b = [];
+%plot(y)
+for i = 0:5
+    x = t.^i;
+    b = [b;x]
+    res = dot(y,x);
+    z = [z;res];
+end
+%z
+%b
+m = [];
+for i = 0:5
+    for j = 0:5
+        m(i+1,j+1) = dot(b(i+1,:),b(j+1,:));
+        %m = [m;ans];
+    end
+end
+%m
+
+inverse = inv(m);
+%inverse
+
+i = inverse * z;
+%i
+
+y = i'*b;
+
+plot(t,y)
+xlabel('t');
+title('y(t)');
+
+plot(t,sin(t))
+xlabel('t');
+title('sin(t)');
+
+p = t- (t.^3/6)+ (t.^5)/120;
+plot(t,p)
+xlabel('t');
+title('p(t)');
+
+
